@@ -8,24 +8,16 @@ export default function showmate(width: number) {
   //https://ant.design/components/card/#
   let x = (
     <Card
-      style={{ width: 300 }}
+      hoverable
+      style={{ width: 240 }}
       cover={
         <img
           alt="example"
-          src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+          src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
         />
       }
-      actions={[
-        <SettingOutlined key="setting" />,
-        <EditOutlined key="edit" />,
-        <EllipsisOutlined key="ellipsis" />,
-      ]}
     >
-      <Meta
-        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-        title="Card title"
-        description="This is the description"
-      />
+      <Meta title="Europe Street beat" description="www.instagram.com" />
     </Card>
   );
 
