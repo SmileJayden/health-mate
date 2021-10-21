@@ -4,7 +4,7 @@ import { Card } from "antd";
 
 const { Meta } = Card;
 
-export default function showmate(width: number) {
+export default function Showmate() {
   //https://ant.design/components/card/#
   let x = (
     <Card
