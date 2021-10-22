@@ -5,12 +5,12 @@ import { CheckCircleOutlined } from "@ant-design/icons";
 import { gray } from "@ant-design/colors";
 
 const introductionDiv = {
-  borderBottom: "1px solid #f0f0f0",
+  borderBottom: "5px solid #f0f0f0",
 };
 
 const introductionStyle = {
   display: "flex",
-  margin: "2% 0% 0% 1%",
+  margin: "2% 0% 0% 1.5%",
 };
 
 const imageintroStyle = {
@@ -18,11 +18,11 @@ const imageintroStyle = {
 };
 
 const textintroStyle = {
-  margin: "3.5% 0% 0% 2.5%",
+  margin: "3.5% 0% 0% 3.5%",
 };
 
 const ismentorStyle = {
-  margin: "0% 0% 0.5% 7%",
+  margin: "0% 0% 0.5% 7.5%",
 };
 
 export function Introduction(userid: string) {
