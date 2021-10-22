@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { Introduction } from "../api/introduction";
+import { Profile } from "../api/profiles";
 
 const Search: NextPage = () => {
-  let src = Introduction("userid007");
+  let src = Profile("userid007");
 
   return src;
 };

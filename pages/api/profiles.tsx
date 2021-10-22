@@ -15,6 +15,12 @@ const introSection = {
   borderBottom: "5px solid #f0f0f0",
 };
 
+const myprofileStyle = {
+  position: "relative",
+  height: "57px",
+  borderBottom: "1px solid #f0f0f0",
+};
+
 const introductionStyle = {
   display: "flex",
   margin: "2% 0% 1% 1.5%",
@@ -108,61 +114,75 @@ export function Profile(userid: string) {
   let displaymentee = checkDisplay(usertype, "Mentee");
   console.log(displaymentor);
   let src = (
-    <div style={introSection}>
-      <div style={introductionStyle}>
-        {img}
-        <div style={informationStyle}>
-          <div style={{ margin: "4% 0% 0% 3.5%" }}>
-            <h3>{sentence1}</h3>
-            <h3>{sentence2}</h3>
-          </div>
+    <div>
+      <div style={myprofileStyle}>
+        <h3
+          style={{
+            position: "absolute",
+            top: "50%",
+            transform: "translateY(-50%)",
+            marginLeft: "3.5%",
+          }}
+        >
+          My Profile
+        </h3>
+      </div>
+      <div style={introSection}>
+        <div style={introductionStyle}>
+          {img}
+          <div style={informationStyle}>
+            <div style={{ margin: "4% 0% 0% 3.5%" }}>
+              <h3>{sentence1}</h3>
+              <h3>{sentence2}</h3>
+            </div>
 
-          <div style={checkDisplay(usertype, "Mentor")}>
-            <Tag
-              icon={<HeartOutlined />}
-              style={snsiconStyle("0%")}
-              color="red"
-            >
-              11.7k Followers
-            </Tag>
-            <Tag
-              icon={<FacebookOutlined />}
-              style={snsiconStyle("23%")}
-              color="blue"
-            >
-              Facebook
-            </Tag>
-            <Tag
-              icon={<InstagramOutlined />}
-              style={snsiconStyle("40.5%")}
-              color="#e95950"
-            >
-              Instagram
-            </Tag>
-            <Tag
-              icon={<YoutubeOutlined />}
-              style={snsiconStyle("58%")}
-              color="#CC0000"
-            >
-              Youtube
-            </Tag>
-          </div>
+            <div style={checkDisplay(usertype, "Mentor")}>
+              <Tag
+                icon={<HeartOutlined />}
+                style={snsiconStyle("0%")}
+                color="red"
+              >
+                11.7k Followers
+              </Tag>
+              <Tag
+                icon={<FacebookOutlined />}
+                style={snsiconStyle("23%")}
+                color="blue"
+              >
+                Facebook
+              </Tag>
+              <Tag
+                icon={<InstagramOutlined />}
+                style={snsiconStyle("40.5%")}
+                color="#e95950"
+              >
+                Instagram
+              </Tag>
+              <Tag
+                icon={<YoutubeOutlined />}
+                style={snsiconStyle("58%")}
+                color="#CC0000"
+              >
+                Youtube
+              </Tag>
+            </div>
 
-          <div style={checkDisplay(usertype, "Mentee")}>
-            <Tag
-              icon={<FacebookOutlined />}
-              style={snsiconStyle("0%")}
-              color="blue"
-            >
-              Facebook
-            </Tag>
-            <Tag
-              icon={<InstagramOutlined />}
-              style={snsiconStyle("17.5%")}
-              color="#e95950"
-            >
-              Instagram
-            </Tag>
+            <div style={checkDisplay(usertype, "Mentee")}>
+              <Tag
+                icon={<FacebookOutlined />}
+                style={snsiconStyle("0%")}
+                color="blue"
+              >
+                Facebook
+              </Tag>
+              <Tag
+                icon={<InstagramOutlined />}
+                style={snsiconStyle("17.5%")}
+                color="#e95950"
+              >
+                Instagram
+              </Tag>
+            </div>
           </div>
         </div>
       </div>
