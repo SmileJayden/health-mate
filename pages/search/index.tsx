@@ -1,7 +1,10 @@
 import type { NextPage } from "next";
+import { Introduction } from "../api/introduction";
 
 const Search: NextPage = () => {
-  return <div>search page should be implemented</div>;
+  let src = Introduction("userid007");
+
+  return src;
 };
 
 export default Search;
