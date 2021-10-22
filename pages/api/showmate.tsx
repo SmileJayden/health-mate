@@ -2,15 +2,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Card, Image } from "antd";
 
-const { Meta } = Card;
-
 export function Showmate(userid: string) {
-  //https://ant.design/components/card/#
+  let usertype = "Mentee";
+  let imgsrc =
+    "https://cdn.topstarnews.net/news/photo/201906/633567_329281_1014.jpg";
+
   let image = (
     <Image
-      alt="example"
-      src="https://blog.kakaocdn.net/dn/bRWTvw/btq7xTtqI5I/t7v7FErxGH5kVkdghkDBq1/img.png"
+      alt="User image load failed."
+      src={imgsrc}
       width="120px"
+      height="127px"
     />
   );
 
