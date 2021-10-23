@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { Profile } from "../api/profiles";
 
 const Search: NextPage = () => {
-  let src = Profile("userid007");
+  let src = <div>search page</div>;
 
   return src;
 };

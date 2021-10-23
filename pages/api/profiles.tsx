@@ -70,9 +70,6 @@ function snsiconStyle(left: string) {
 export function Profile(userid: string) {
   // TODO :  implement user data loading.
   let usertype = "Mentor";
-  if (userid == "userid007") {
-    usertype = "Mentee";
-  }
   let sentence1 =
     "Hi, I am a health trainer who has been exercising for 5 years.";
   let sentence2 =
@@ -88,6 +85,9 @@ export function Profile(userid: string) {
     imgsrc =
       " https://cdn.topstarnews.net/news/photo/201906/633567_329281_1014.jpg";
   }
+  console.log(userid);
+  console.log(usertype);
+  console.log(imgsrc);
 
   // Fully Implemented Code
   let img = (
@@ -112,7 +112,6 @@ export function Profile(userid: string) {
 
   let displaymentor = checkDisplay(usertype, "Mentor");
   let displaymentee = checkDisplay(usertype, "Mentee");
-  console.log(displaymentor);
   let src = (
     <div>
       <div style={myprofileStyle}>
