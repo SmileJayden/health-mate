@@ -67,7 +67,7 @@ function snsiconStyle(left: string) {
   return style;
 }
 
-export function Profile(userid: string) {
+export default function Profile(userid: string) {
   // TODO :  implement user data loading.
   let usertype = "Mentor";
   let sentence1 =
