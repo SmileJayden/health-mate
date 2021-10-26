@@ -1,7 +1,50 @@
 .container {
-  background-color: beige;
-
   .title {
-    color: red;
+    height: 57px;
+    line-height: 57px;
+    vertical-align: center;
+    padding-left: 3.5%;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .leftBody {
+    padding-left: 5%;
+
+    .image {
+      width: 90px;
+      height: 95px;
+    }
+
+    .figCaption {
+      padding: 1% 0% 0% 9%;
+      .memberType {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .rightBody {
+    display: flex;
+    padding: 2% 0% 1% 1.5%;
+    border-bottom: 5px solid #f0f0f0;
+
+    .profile {
+      position: relative;
+      width: 100%;
+      padding-left: 3.5%;
+      flex-direction: column;
+
+      .text {
+        height: 95px;
+        line-height: 95px;
+        vertical-align: center;
+      }
+
+      .icons {
+        position: absolute;
+        bottom: 0;
+        cursor: pointer;
+      }
+    }
   }
 }

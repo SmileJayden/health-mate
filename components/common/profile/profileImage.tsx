@@ -1,6 +1,7 @@
 import { Image, Tag } from "antd";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { MemberType } from "@components/common/profile/index";
+import styles from "./index.module.scss";
 
 type Props = {
   imgSrc: string;
@@ -10,17 +11,16 @@ type Props = {
 
 export default function ProfileImage(props: Props) {
   return (
-    <div style={{ marginLeft: "5%" }}>
+    <div className={styles.leftBody}>
       <Image
         alt="Introduction image load failed."
         src={props.imgSrc}
-        width="90px"
-        height="95px"
+        className={styles.image}
       />
-      <figcaption style={{ margin: "1% 0% 0% 9%" }}>
+      <figcaption className={styles.figCaption}>
         <Tag
           icon={<CheckCircleOutlined />}
-          style={{ cursor: "pointer" }}
+          className={styles.memberType}
           color={props.color}
         >
           {props.memberType}
