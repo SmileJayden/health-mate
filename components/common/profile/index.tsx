@@ -15,13 +15,10 @@ export enum MemberType {
   NULL = "null",
 }
 
-export type ProfileType = {
-  memberType: MemberType;
+type Props = {
   imgSrc: string;
-  name: string;
-  age: number;
-  location: string;
   description: string;
+  memberType: MemberType;
 };
 
 type TagItem = {
@@ -30,14 +27,9 @@ type TagItem = {
   icon: ReactNode;
 };
 
-export default function Profile(props: ProfileType) {
-  const props_imgSrc =
-    props.memberType === MemberType.MENTOR
-      ? "https://blog.kakaocdn.net/dn/bRWTvw/btq7xTtqI5I/t7v7FErxGH5kVkdghkDBq1/img.png"
-      : "https://cdn.topstarnews.net/news/photo/201906/633567_329281_1014.jpg";
+export default function Profile(props: Props) {
   const profileColor =
     props.memberType === MemberType.MENTOR ? "green" : "gray";
-  const props_description = "Hello, World! I'm a mentor. My name is ABC.";
 
   const tagItems: TagItem[] = [
     { key: "11.7k Followers", color: "red", icon: <HeartOutlined /> },
@@ -45,28 +37,30 @@ export default function Profile(props: ProfileType) {
     { key: "Instagram", color: "#F56040", icon: <InstagramOutlined /> },
     { key: "Youtube", color: "#CC0000", icon: <YoutubeOutlined /> },
   ];
+  const myIcons: TagItem[] =
+    props.memberType === MemberType.MENTOR ? tagItems : tagItems.slice(1, 3);
 
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <h3>My Profile</h3>
+        <p className={styles.text}>My Profile</p>
       </div>
 
       <div className={styles.rightBody}>
         <ProfileImage
-          imgSrc={props_imgSrc}
-          memberType={props.memberType}
+          imgSrc={props.imgSrc}
           color={profileColor}
+          memberType={props.memberType}
         />
 
         <div className={styles.profile}>
-          <h3 className={styles.text}>{props_description}</h3>
+          <p className={styles.text}>{props.description}</p>
 
           <div className={styles.icons}>
-            {tagItems.map((tagItem, idx) => {
+            {myIcons.map((myIcon, idx) => {
               return (
-                <Tag icon={tagItem.icon} color={tagItem.color} key={idx}>
-                  {tagItem.key}
+                <Tag icon={myIcon.icon} color={myIcon.color} key={idx}>
+                  {myIcon.key}
                 </Tag>
               );
             })}

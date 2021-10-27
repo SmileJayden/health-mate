@@ -1,14 +1,22 @@
 .container {
   .title {
-    height: 57px;
-    line-height: 57px;
-    vertical-align: center;
-    padding-left: 3.5%;
-    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    height: 60px;
+    background: #fffbe6;
+    align-items: center;
+    padding-left: 32px;
+    border-top: 2px solid #d9d9d9;
+    border-bottom: 2px solid #d9d9d9;
+
+    .text {
+      margin: 0;
+      font-size: 18px;
+    }
   }
 
   .leftBody {
-    padding-left: 5%;
+    background: #fafafa;
+    padding-left: 44px;
 
     .image {
       width: 90px;
@@ -25,8 +33,9 @@
 
   .rightBody {
     display: flex;
+    background: #fafafa;
     padding: 2% 0% 1% 1.5%;
-    border-bottom: 5px solid #f0f0f0;
+    border-bottom: 2px solid #d9d9d9;
 
     .profile {
       position: relative;
@@ -35,9 +44,10 @@
       flex-direction: column;
 
       .text {
+        display: flex;
         height: 95px;
-        line-height: 95px;
-        vertical-align: center;
+        font-size: 17px;
+        align-items: center;
       }
 
       .icons {
