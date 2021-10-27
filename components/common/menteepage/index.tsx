@@ -1,37 +1,34 @@
-import { Image, Card } from "antd";
-import styles from "./index.module.scss";
+import MyActivity from "@components/common/menteepage/myActivity";
+import MyMentor from "@components/common/menteepage/myMentor";
 
 type Props = {
-  name: string;
+  userId: string;
 };
 
-type MyAnalysis = any;
-
-function WalkAnalysis(props: Props) {
-  return <div>walking</div>;
-}
-
-function ArmAnalysis(props: Props) {
-  return <div>arm training</div>;
-}
-
 export default function MenteePage(props: Props) {
-  const myanalysis: MyAnalysis = [WalkAnalysis(props), ArmAnalysis(props)];
+  const imgSrc =
+    "https://blog.kakaocdn.net/dn/bRWTvw/btq7xTtqI5I/t7v7FErxGH5kVkdghkDBq1/img.png";
+  const name = "HealthKing";
+  const age = 30;
+  const location = "Yuseong, Daejeon, South Korea";
+  const description =
+    "Hello, I'm a health king who enjoy health. In the morning, I jog every day.";
+
+  const activityImages: string[] = [
+    "https://drive.google.com/uc?export=view&id=12uAF4UehDxntFV8ddu59rjpp9dpa3A_5",
+    "https://drive.google.com/uc?export=view&id=19nXgPxLB_yI6JPq6VKyd3m2DvpgAtMjC",
+  ];
 
   return (
     <div>
-      <Card title="My Mentor" className={styles.mentor}>
-        <Card.Grid className={styles.info}></Card.Grid>
-      </Card>
-      <Card title="My Activity">
-        {myanalysis.map((analysis, idx) => {
-          return (
-            <Card.Grid className={styles.container} key={idx}>
-              {analysis}
-            </Card.Grid>
-          );
-        })}
-      </Card>
+      <MyMentor
+        imgSrc={imgSrc}
+        name={name}
+        age={age}
+        location={location}
+        description={description}
+      />
+      <MyActivity images={activityImages} />
     </div>
   );
 }

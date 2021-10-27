@@ -1,7 +1,12 @@
-import { ProfileType } from "@components/common/profile";
 import styles from "./index.module.scss";
 
-export default function MenteeProfile(props: ProfileType) {
+type Props = {
+  name: string;
+  age: number;
+  location: string;
+};
+
+export default function MenteeProfile(props: Props) {
   return (
     <div className={styles.info}>
       <p className={styles.name}>{props.name}</p>
@@ -9,12 +14,12 @@ export default function MenteeProfile(props: ProfileType) {
       <ul className={styles.ul}>
         <li className={styles.li}>
           <span className={styles.span}>Age</span>
-          &nbsp;&nbsp;{props.age}
+          {props.age}
         </li>
 
         <li className={styles.li}>
           <span className={styles.span}>Location</span>
-          &nbsp;&nbsp;{props.location}
+          {props.location}
         </li>
       </ul>
     </div>

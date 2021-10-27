@@ -1,17 +1,23 @@
-import { ProfileType } from "@components/common/profile";
 import MenteeProfile from "@components/common/mentorpage/menteeProfile";
-import { Image } from "antd";
 import styles from "./index.module.scss";
 
-export default function ShowMentee(props: ProfileType) {
+type Props = {
+  imgSrc: string;
+  name: string;
+  age: number;
+  location: string;
+  description: string;
+};
+
+export default function ShowMentee(props: Props) {
   return (
     <div>
       <div className={styles.basic}>
-        <Image
+        <img
           alt="Mentee Image load failed."
           src={props.imgSrc}
           className={styles.image}
-        ></Image>
+        ></img>
 
         <MenteeProfile
           name={props.name}

@@ -1,24 +1,33 @@
 import type { NextPage } from "next";
-import { Card, Typography } from "antd";
 import Profile, { MemberType } from "@components/common/profile";
 import MentorPage from "@components/common/mentorpage";
 import MenteePage from "@components/common/menteepage";
-import styles from "./index.module.scss";
 
 const Home: NextPage = () => {
-  const name = "Jayden";
-  const membertype = MemberType.MENTOR;
+  const userId = "userid007";
+  // toggle memberType
+  const memberType = MemberType.MENTEE;
+  const imgSrc =
+    memberType === MemberType.MENTOR
+      ? "https://blog.kakaocdn.net/dn/bRWTvw/btq7xTtqI5I/t7v7FErxGH5kVkdghkDBq1/img.png"
+      : "https://cdn.topstarnews.net/news/photo/201906/633567_329281_1014.jpg";
+  const description =
+    "Hello, World! I'm a mentor. My name is ABC. OOOOO AAAAAAAAAAAAAAAaa";
 
   const homepage =
-    membertype === MemberType.MENTOR ? (
-      <MentorPage name={name}></MentorPage>
+    memberType === MemberType.MENTOR ? (
+      <MentorPage userId={userId}></MentorPage>
     ) : (
-      <MenteePage name={name}></MenteePage>
+      <MenteePage userId={userId}></MenteePage>
     );
 
   return (
-    <div className={styles.container}>
-      <Profile name={name} memberType={membertype}></Profile>
+    <div>
+      <Profile
+        imgSrc={imgSrc}
+        description={description}
+        memberType={memberType}
+      ></Profile>
       {homepage}
     </div>
   );
