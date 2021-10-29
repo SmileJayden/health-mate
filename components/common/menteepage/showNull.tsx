@@ -1,21 +1,12 @@
 import { useRouter } from "next/router";
 import Paths from "@lib/paths";
 import { Card } from "antd";
-import MentorProfile from "@components/common/menteepage/mentorProfile";
+import { PlusSquareOutlined } from "@ant-design/icons";
 import styles from "./index.module.scss";
 
-type Props = {
-  imgSrc: string;
-  name: string;
-  age: number;
-  location: string;
-  description: string;
-  rating: number;
-};
-
-export default function MyMentor(props: Props) {
+export default function showNull() {
   const router = useRouter();
-  const href = Paths.CHATTING;
+  const href = Paths.SEARCH;
   const handleClick = (e) => {
     e.preventDefault();
     router.push(href);
@@ -35,17 +26,12 @@ export default function MyMentor(props: Props) {
         fontSize: "18px",
       }}
       bodyStyle={{ padding: "2.5px 0 0 30px" }}
-      onClick={handleClick}
     >
-      <Card.Grid className={styles.card}>
-        <img className={styles.img} src={props.imgSrc} />
-        <MentorProfile
-          name={props.name}
-          age={props.age}
-          location={props.location}
-          description={props.description}
-          rating={props.rating}
-        />
+      <Card.Grid className={styles.nullCard} onClick={handleClick}>
+        <div className={styles.null}>
+          <PlusSquareOutlined className={styles.icon} />
+          <p className={styles.text}>Find New Mentor</p>
+        </div>
       </Card.Grid>
     </Card>
   );

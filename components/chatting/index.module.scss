@@ -1,0 +1,116 @@
+.container {
+  .title {
+    display: flex;
+    height: 60px;
+    background: #fffbe6;
+    align-items: center;
+    padding-left: 32px;
+    border-top: 2px solid #d9d9d9;
+    border-bottom: 2px solid #d9d9d9;
+
+    .circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 22px;
+      cursor: pointer;
+      :hover {
+        border-radius: 20px;
+        background: #d9d9d9;
+      }
+
+      .icon {
+        display: flex;
+        height: 100%;
+        font-size: 18px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .text {
+      margin: 0;
+      padding-left: 9px;
+      font-size: 18px;
+    }
+  }
+
+  .chats {
+    display: flex;
+    height: 676px;
+    background: #fafafa;
+    flex-direction: column-reverse;
+
+    .chat {
+      width: 300px;
+      height: 50px;
+    }
+  }
+
+  .footer {
+    display: flex;
+    width: 700px;
+    height: 70px;
+    bottom: 78px;
+    border-top: 2px solid #d9d9d9;
+    border-bottom: 2px solid #d9d9d9;
+
+    .attach {
+      width: 55px;
+      height: 66px;
+      margin-left: 11px;
+      cursor: pointer;
+      :hover {
+        background: #d9d9d9;
+      }
+
+      .icon {
+        display: flex;
+        height: 100%;
+        font-size: 30px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .input {
+      width: 513px;
+      height: 66px;
+      border: 0;
+      font-size: 24px;
+    }
+
+    .emoticon {
+      width: 55px;
+      height: 66px;
+      cursor: pointer;
+      :hover {
+        background: #d9d9d9;
+      }
+
+      .icon {
+        display: flex;
+        height: 100%;
+        font-size: 30px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .poundKey {
+      width: 55px;
+      height: 66px;
+      cursor: pointer;
+      :hover {
+        background: #d9d9d9;
+      }
+
+      .icon {
+        display: flex;
+        height: 100%;
+        font-size: 30px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
