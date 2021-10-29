@@ -4,10 +4,7 @@ import ShowNull from "@components/common/mentorpage/showNull";
 import ShowMentee from "@components/common/mentorpage/showMentee";
 import { MemberType } from "@components/common/profile";
 import { Card } from "antd";
-<<<<<<< HEAD
 import GetMentees from "@lib/utils/getmentees";
-=======
->>>>>>> 747d4fdea908ba5462c427dae798e0851511ff8d
 import styles from "./index.module.scss";
 
 type Props = {
@@ -15,7 +12,6 @@ type Props = {
 };
 
 export default function MentorPage(props: Props) {
-<<<<<<< HEAD
   const router = useRouter();
   const nullUser = { memberType: MemberType.NULL };
   const informations = [nullUser, nullUser, nullUser, nullUser];
@@ -32,23 +28,6 @@ export default function MentorPage(props: Props) {
     if (value.docs.length % 2 == 0)
       informations[value.docs.length + 1] = nullUser;
   }
-=======
-  // TODO construct Mentee information using props.userid
-  const tmp: ProfileType = {
-    userId: "userid000",
-    imgSrc:
-      "https://cdn.topstarnews.net/news/photo/201906/633567_329281_1014.jpg",
-    name: "Gyuho Suh",
-    age: 25,
-    location: "Seoul",
-    description: "I like to exercise every day. I'm finding a new health mate.",
-    memberType: MemberType.MENTEE,
-  };
-  const nouser: ProfileType = { memberType: MemberType.NULL };
-  const informations: ProfileType[] = [tmp, tmp, tmp, nouser];
-
-  const router = useRouter();
->>>>>>> 747d4fdea908ba5462c427dae798e0851511ff8d
 
   return (
     <Card
@@ -93,17 +72,7 @@ export default function MentorPage(props: Props) {
                 onClick={handleClick}
                 key={idx}
               >
-<<<<<<< HEAD
                 <ShowMentee userId={menteeInfo.userId}></ShowMentee>
-=======
-                <ShowMentee
-                  imgSrc={menteeInfo.imgSrc}
-                  name={menteeInfo.name}
-                  age={menteeInfo.age}
-                  location={menteeInfo.location}
-                  description={menteeInfo.description}
-                ></ShowMentee>
->>>>>>> 747d4fdea908ba5462c427dae798e0851511ff8d
               </Card.Grid>
             )}
           </div>

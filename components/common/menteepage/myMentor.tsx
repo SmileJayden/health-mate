@@ -10,10 +10,7 @@ type Props = {
   age: number;
   location: string;
   description: string;
-<<<<<<< HEAD
   rating: number;
-=======
->>>>>>> 747d4fdea908ba5462c427dae798e0851511ff8d
 };
 
 export default function MyMentor(props: Props) {
@@ -47,10 +44,7 @@ export default function MyMentor(props: Props) {
           age={props.age}
           location={props.location}
           description={props.description}
-<<<<<<< HEAD
           rating={props.rating}
-=======
->>>>>>> 747d4fdea908ba5462c427dae798e0851511ff8d
         />
       </Card.Grid>
     </Card>
