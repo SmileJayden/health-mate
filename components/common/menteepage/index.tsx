@@ -11,8 +11,8 @@ export default function MenteePage(props: Props) {
 
   return (
     <div>
-      {(loading || error || !value || value.docs.length == 0) && <ShowNull />}
-      {!(loading || error || !value || value.docs.length == 0) && (
+      {(loading || error || !value || value.docs.length === 0) && <ShowNull />}
+      {!(loading || error || !value || value.docs.length === 0) && (
         <MentorData mentorId={value.docs[0].data().mentorId} />
       )}
     </div>

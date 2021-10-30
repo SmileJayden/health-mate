@@ -10,8 +10,8 @@ export default function ShowMentee(props: Props) {
 
   return (
     <div>
-      {(loading || error || !value || value.docs.length == 0) && <div></div>}
-      {!(loading || error || !value || value.docs.length == 0) && (
+      {(loading || error || !value || value.docs.length === 0) && <div></div>}
+      {!(loading || error || !value || value.docs.length === 0) && (
         <MyMentee profile={value.docs[0].data()} />
       )}
     </div>

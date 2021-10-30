@@ -16,13 +16,13 @@ export default function MentorData(props: Props) {
   const [value, loading, error] = GetProfile(props.mentorId);
   return (
     <div>
-      {(loading || error || !value || value.docs.length == 0) && (
+      {(loading || error || !value || value.docs.length === 0) && (
         <div>
           <ShowNull />
           <MyActivity images={activityImages} />
         </div>
       )}
-      {!(loading || error || !value || value.docs.length == 0) && (
+      {!(loading || error || !value || value.docs.length === 0) && (
         <ShowMentor profile={value.docs[0].data()} images={activityImages} />
       )}
     </div>

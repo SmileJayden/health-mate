@@ -1,3 +1,5 @@
+import ShowMyChat from "@components/chatting/showMyChat";
+import ShowFriendChat from "@components/chatting/showFriendChat";
 import styles from "./index.module.scss";
 
 enum ChatType {
@@ -11,8 +13,9 @@ type Props = {
   chats: any;
 };
 
-type Chats = {
+export type Chats = {
   msg: string;
+  date: string;
   type: ChatType;
 };
 
@@ -21,7 +24,10 @@ export default function ChatMessage(props: Props) {
   const chats: Chats[] = [];
 
   for (let i = 1; i <= props.chats.chatNum; i++) {
-    message = { msg: props.chats["chat" + i.toString()] };
+    message = {
+      msg: props.chats["chat" + i.toString()],
+      date: props.chats["time" + i.toString()],
+    };
     if (
       (props.chats["type" + i.toString()] === "A" &&
         props.user.userId === props.chats.personA) ||
@@ -40,7 +46,10 @@ export default function ChatMessage(props: Props) {
       {chats.map((chat, idx) => {
         return (
           <div>
-            <p className={styles.chat}>{chat.msg}</p>
+            {chat.type === ChatType.MY && <ShowMyChat chat={chat} key={idx} />}
+            {chat.type === ChatType.YOU && (
+              <ShowFriendChat chat={chat} friend={props.friend} key={idx} />
+            )}
           </div>
         );
       })}

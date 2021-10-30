@@ -36,13 +36,107 @@
 
   .chats {
     display: flex;
-    height: 676px;
+    height: calc(100vh - 272px);
     background: #fafafa;
+    overflow: auto;
     flex-direction: column-reverse;
 
-    .chat {
-      width: 300px;
-      height: 50px;
+    .myChat {
+      display: flex;
+      margin: 8px 8px 8px 0;
+      flex-direction: row-reverse;
+
+      .triangle {
+        width: 0;
+        height: 0;
+        border-bottom: 12px solid transparent;
+        border-left: 12px solid #ffe812;
+      }
+
+      .chat {
+        display: flex;
+        max-width: 380px;
+        font-size: 18px;
+        background: #ffe812;
+        padding: 10px 20px 10px 20px;
+        border-radius: 16px 0 16px 16px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .time {
+        display: flex;
+        font-size: 12px;
+        margin-right: 4px;
+        padding-bottom: 4px;
+        flex-direction: column-reverse;
+
+        -ms-user-select: none;
+        -moz-user-select: -moz-none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
+      }
+    }
+
+    .friendChat {
+      display: flex;
+      margin: 8px 0 8px 8px;
+
+      .img {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+      }
+
+      .triangle {
+        width: 0;
+        height: 0;
+        margin-top: 28px;
+        margin-left: 4px;
+        border-bottom: 12px solid transparent;
+        border-right: 12px solid #d3f261;
+      }
+
+      .message {
+        display: flex;
+        flex-direction: column;
+
+        .name {
+          font-size: 16px;
+          padding-left: 6px;
+        }
+
+        .flex {
+          display: flex;
+
+          .chat {
+            display: flex;
+            max-width: 380px;
+            font-size: 18px;
+            background: #d3f261;
+            margin-top: 4px;
+            padding: 10px 20px 10px 20px;
+            border-radius: 0 16px 16px 16px;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .time {
+            display: flex;
+            font-size: 12px;
+            margin-left: 4px;
+            padding-bottom: 4px;
+            flex-direction: column-reverse;
+
+            -ms-user-select: none;
+            -moz-user-select: -moz-none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+          }
+        }
+      }
     }
   }
 
@@ -77,6 +171,8 @@
       height: 66px;
       border: 0;
       font-size: 24px;
+      resize: none;
+      padding-top: 14px;
     }
 
     .emoticon {
@@ -99,6 +195,24 @@
     .poundKey {
       width: 55px;
       height: 66px;
+      cursor: pointer;
+      :hover {
+        background: #d9d9d9;
+      }
+
+      .icon {
+        display: flex;
+        height: 100%;
+        font-size: 30px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .rightKey {
+      width: 55px;
+      height: 66px;
+      background: #ffe812;
       cursor: pointer;
       :hover {
         background: #d9d9d9;

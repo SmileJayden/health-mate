@@ -9,8 +9,8 @@ const ChatRoom: NextPage = () => {
 
   return (
     <div>
-      {(loading || error || !value || value.docs.length == 0) && <div></div>}
-      {!(loading || error || !value || value.docs.length == 0) && (
+      {(loading || error || !value || value.docs.length === 0) && <div></div>}
+      {!(loading || error || !value || value.docs.length === 0) && (
         <FriendProfile user={value.docs[0].data()} friendId={friendId} />
       )}
     </div>
