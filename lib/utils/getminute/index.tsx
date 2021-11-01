@@ -1,18 +1,9 @@
-export default function GetMinute(date: string) {
-  const splitted = date.split(" ", 5);
-  const [hour, minute, second] = splitted[4].split(":", 3);
+import { format } from "date-fns";
+import { ko } from "date-fns/locale";
+import { FireStoreTimeStamp } from "@models/common";
 
-  return (
-    (Number(hour) == 0
-      ? "00"
-      : Number(hour) <= 12
-      ? Number(hour).toString()
-      : (Number(hour) - 12).toString()) +
-    ":" +
-    minute +
-    " " +
-    (Number(hour) < 12 ? "AM" : "PM")
-  );
-
-  return minute;
+export default function GetMinute(date: FireStoreTimeStamp) {
+  return format(new Date(date.seconds * 1000), "a hh: mm ", {
+    locale: ko,
+  });
 }

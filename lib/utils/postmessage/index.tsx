@@ -1,17 +1,31 @@
 import firebase from "firebase/app";
+import CollectionName from "@lib/firebase/collections";
 
-export default function PostMessage(
+export default async function PostMessage(
   userId: string,
   friendId: string,
   message: string,
-  chatNum: number
+  chatNum: number = 0
 ) {
-  // TODO : Post Message
-  // firebase 의 chats 데이터베이스에서
-  // (personA, personB) = (min(userId, friendId), max(userId, friendId))에 해당되는 자료를 찾아서
-  // (이유 : 데이터베이스 상에는 personA < personB가 되도록 정의해두었습니다.)
-  // chat, type, time, chatNum 값을 업데이트를 해줘야 되는 상황입니다..
+  const targetChat = await firebase
+    .firestore()
+    .collection(CollectionName.CHATS)
+    .where("personA", "==", userId)
+    .where("personB", "==", friendId)
+    .limit(1)
+    .get();
 
-  console.log(message);
-  console.log(Date());
+  const chatPathId = targetChat.docs[0].id;
+
+  const chatRef = await firebase
+    .firestore()
+    .collection(CollectionName.CHATS)
+    .doc(chatPathId);
+
+  chatRef.update({
+    [`chat${chatNum + 1}`]: message,
+    [`time${chatNum + 1}`]: new Date(),
+    [`chat${chatNum + 1}Id`]: userId,
+    chatNum: chatNum + 1,
+  });
 }

@@ -28,12 +28,8 @@ export default function ChatMessage(props: Props) {
       msg: props.chats["chat" + i.toString()],
       date: props.chats["time" + i.toString()],
     };
-    if (
-      (props.chats["type" + i.toString()] === "A" &&
-        props.user.userId === props.chats.personA) ||
-      (props.chats["type" + i.toString()] === "B" &&
-        props.user.userId === props.chats.personB)
-    ) {
+    const chatId = props.chats["chat" + i.toString() + "Id"];
+    if (props.user.userId === chatId) {
       message.type = ChatType.MY;
     } else {
       message.type = ChatType.YOU;

@@ -10,7 +10,9 @@ export default function GetMentor(menteeId: string) {
       .where("menteeId", "==", menteeId)
       .limit(1),
     {
-      snapshotListenOptions: { includeMetadataChanges: true },
+      snapshotListenOptions: {
+        includeMetadataChanges: true,
+      },
     }
   );
 }
