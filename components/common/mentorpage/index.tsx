@@ -13,7 +13,7 @@ type Props = {
 
 export default function MentorPage(props: Props) {
   const router = useRouter();
-  const nullUser = { memberType: MemberType.NULL };
+  const nullUser = { userId: "null", memberType: MemberType.NULL };
   const informations = [nullUser, nullUser, nullUser, nullUser];
 
   const [value, loading, error] = GetMentees(props.userId);
@@ -49,13 +49,13 @@ export default function MentorPage(props: Props) {
           menteeInfo.memberType === MemberType.NULL
             ? Paths.SEARCH
             : Paths.CHATTING;
-        const handleClick = (e) => {
+        const handleClick = (e: React.MouseEvent<HTMLElement>) => {
           e.preventDefault();
           router.push(href);
         };
 
         return (
-          <div>
+          <div key={idx}>
             {menteeInfo.memberType === MemberType.NULL && (
               <Card.Grid
                 className={styles.nullCard}

@@ -7,7 +7,7 @@ import styles from "./index.module.scss";
 export default function showNull() {
   const router = useRouter();
   const href = Paths.SEARCH;
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     router.push(href);
   };

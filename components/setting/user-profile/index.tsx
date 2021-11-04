@@ -5,7 +5,7 @@ export default function UserProfile() {
   const [value, loading, error] = GetProfile("userid001");
   if (loading || error || !value || value.docs.length == 0) return <div></div>;
 
-  const profile: Profile = value.docs[0].data();
+  const profile = value.docs[0].data();
 
   return (
     <div>

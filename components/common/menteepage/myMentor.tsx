@@ -16,7 +16,7 @@ type Props = {
 export default function MyMentor(props: Props) {
   const router = useRouter();
   const href = Paths.CHATTING;
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     router.push(href);
   };

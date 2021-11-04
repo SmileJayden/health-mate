@@ -1,10 +1,10 @@
 import { Image } from "antd";
-import { ChatType } from "@components/chatting/chatMessage";
+import { Chats } from "@components/chatting/chatMessage";
 import GetMinute from "@lib/utils/getminute";
 import styles from "./index.module.scss";
 
 type Props = {
-  chat: ChatType;
+  chat: Chats;
   friend: any;
 };
 

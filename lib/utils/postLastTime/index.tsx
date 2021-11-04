@@ -1,14 +1,7 @@
 import firebase from "firebase/app";
 import CollectionName from "@lib/firebase/collections";
 
-export default async function PostMessage(
-  userId: string,
-  friendId: string,
-  message: string,
-  chatNum: number = 0,
-  unReadA: number,
-  unReadB: number
-) {
+export default async function PostLastTime(userId: string, friendId: string) {
   const targetChat1 = await firebase
     .firestore()
     .collection(CollectionName.CHATS)
@@ -37,19 +30,13 @@ export default async function PostMessage(
 
   if (targetChat1.docs.length === 0) {
     chatRef.update({
-      [`chat${chatNum + 1}`]: message,
-      [`time${chatNum + 1}`]: new Date(),
-      [`chat${chatNum + 1}Id`]: userId,
-      chatNum: chatNum + 1,
-      unReadA: unReadA + 1,
+      lastTimeB: new Date(),
+      unReadB: 0,
     });
   } else {
     chatRef.update({
-      [`chat${chatNum + 1}`]: message,
-      [`time${chatNum + 1}`]: new Date(),
-      [`chat${chatNum + 1}Id`]: userId,
-      chatNum: chatNum + 1,
-      unReadB: unReadB + 1,
+      lastTimeA: new Date(),
+      unReadA: 0,
     });
   }
 }

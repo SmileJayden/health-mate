@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Paths from "@lib/paths";
 import {
@@ -21,80 +21,88 @@ type Props = {
   chats: any;
 };
 
-export default class ChatRoom extends React.Component {
-  constructor(props: Props) {
-    super(props);
+export default function ChatRoom(props: Props) {
+  const [message, setMessage] = useState("");
 
-    this.state = {
-      message: "",
-    };
-  }
-
-  handleCircle = (e) => {
+  const handleCircle = (e: React.MouseEvent<HTMLDivElement>) => {
+    // TODO
     e.preventDefault();
   };
 
-  handleChange = (e) => {
-    this.setState({ message: e.target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMessage(e.target.value);
   };
 
-  handleEnter = (e) => {
-    if ((e.keyCode === 13 && !e.shiftKey) || e.type === "click") {
+  const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.keyCode === 13 && !e.shiftKey) {
       e.preventDefault();
       PostMessage(
-        this.props.user.userId,
-        this.props.friend.userId,
-        this.state.message,
-        this.props.chats.chatNum
+        props.user.userId,
+        props.friend.userId,
+        message,
+        props.chats.chatNum,
+        props.chats.unReadA,
+        props.chats.unReadB
       );
-      this.setState({ message: "" });
+      setMessage("");
     }
   };
 
-  render() {
-    return (
-      <div className={styles.container}>
-        <div className={styles.title}>
-          <div className={styles.circle} onClick={this.handleCircle}>
-            <ArrowLeftOutlined className={styles.icon} />
-          </div>
-          <p className={styles.text}>{this.props.friend.name}</p>
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    PostMessage(
+      props.user.userId,
+      props.friend.userId,
+      message,
+      props.chats.chatNum,
+      props.chats.unReadA,
+      props.chats.unReadB
+    );
+    setMessage("");
+  };
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.title}>
+        <div className={styles.circle} onClick={handleCircle}>
+          <ArrowLeftOutlined className={styles.icon} />
+        </div>
+        <p className={styles.text}>{props.friend.name}</p>
+      </div>
+
+      <ChatMessage
+        user={props.user}
+        friend={props.friend}
+        chats={props.chats}
+      />
+
+      <div className={styles.footer}>
+        <div className={styles.attach}>
+          <PlusSquareOutlined className={styles.icon} />
         </div>
 
-        <ChatMessage
-          user={this.props.user}
-          friend={this.props.friend}
-          chats={this.props.chats}
+        <TextArea
+          className={styles.input}
+          value={message}
+          onChange={handleChange}
+          onKeyDown={handleEnter}
+          autoFocus={true}
         />
 
-        <div className={styles.footer}>
-          <div className={styles.attach}>
-            <PlusSquareOutlined className={styles.icon} />
-          </div>
-
-          <TextArea
-            className={styles.input}
-            value={this.state.message}
-            onChange={this.handleChange}
-            onKeyDown={this.handleEnter}
-            autoFocus="autofocus"
-          />
-
-          <div className={styles.emoticon}>
-            <SmileOutlined className={styles.icon} />
-          </div>
-          {this.state.message !== "" && (
-            <div className={styles.rightKey} onClick={this.handleEnter}>
-              <RightSquareFilled className={styles.icon} />
-            </div>
-          )}
-          {this.state.message === "" && (
-            <div className={styles.poundKey}>
-              <NumberOutlined className={styles.icon} />
-            </div>
-          )}
+        <div className={styles.emoticon}>
+          <SmileOutlined className={styles.icon} />
         </div>
+        {message !== "" && (
+          <div className={styles.rightKey} onClick={handleClick}>
+            <RightSquareFilled className={styles.icon} />
+          </div>
+        )}
+        {message === "" && (
+          <div className={styles.poundKey}>
+            <NumberOutlined className={styles.icon} />
+          </div>
+        )}
       </div>
-    );
-  }
+    </div>
+  );
 }

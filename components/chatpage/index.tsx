@@ -1,15 +1,44 @@
-import type { NextPage } from "next";
-import Link from "next/link";
-import Paths from "lib/paths";
-import styles from "./index.module.scss";
+import GetRoomA from "@lib/utils/getroomA";
+import GetRoomB from "@lib/utils/getroomB";
+import ShowRooms from "@components/chatpage/showRooms";
 
-export default function ChatPage() {
+type Props = {
+  userId: string;
+};
+
+export default function ChatPage(props: Props) {
+  const emptyDict: any[] = [];
+  const [valueA, loadingA, errorA] = GetRoomA(props.userId);
+  const flagA = loadingA || errorA || !valueA || valueA.docs.length === 0;
+  const [valueB, loadingB, errorB] = GetRoomB(props.userId);
+  const flagB = loadingB || errorB || !valueB || valueB.docs.length === 0;
+
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>
-        <p className={styles.text}>Chats</p>
-      </div>
-      <Link href={Paths.CHATROOM}>aa</Link>
+    <div>
+      {flagA && flagB && (
+        <ShowRooms userId={props.userId} chatA={emptyDict} chatB={emptyDict} />
+      )}
+      {flagA && !flagB && (
+        <ShowRooms
+          userId={props.userId}
+          chatA={emptyDict}
+          chatB={valueB.docs}
+        />
+      )}
+      {!flagA && flagB && (
+        <ShowRooms
+          userId={props.userId}
+          chatA={valueA.docs}
+          chatB={emptyDict}
+        />
+      )}
+      {!flagA && !flagB && (
+        <ShowRooms
+          userId={props.userId}
+          chatA={valueA.docs}
+          chatB={valueB.docs}
+        />
+      )}
     </div>
   );
 }
